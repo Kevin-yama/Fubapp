@@ -1,5 +1,15 @@
+function reload() {
+  
+  var initialPage = location.pathname;
+  alert("ca");
+  //alert(initialPage);
+  //window.location="'http://localhost/proyecto_final/servidor/php/registro/";
+  location.replace('http://localhost/proyecto_final/servidor/php/registro');
+  } 
+
+
 var current = null;
-document.querySelector('#email').addEventListener('focus', function(e) {
+document.querySelector('#user').addEventListener('focus', function(e) {
   if (current) current.pause();
   current = anime({
     targets: 'path',

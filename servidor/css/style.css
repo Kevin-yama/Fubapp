@@ -119,6 +119,16 @@ input {
   outline: none !important;
   width: 100%;
 }
+button {
+  background: transparent;
+  border: 0;
+  color: #f2f2f2;
+  font-size: 20px;
+  height: 30px;
+  line-height: 30px;
+  outline: none !important;
+  width: 100%;
+}
 input::-moz-focus-inner { 
   border: 0; 
 }
