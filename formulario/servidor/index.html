@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>login</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <link href='https://fonts.googleapis.com/css?family=Raleway:300,200' rel='stylesheet' type='text/css'>  
+  <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script
+  		src="https://code.jquery.com/jquery-3.3.1.js"
+  		integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  		crossorigin="anonymous">
+  	</script>
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<form class="login-form" id="formulario">
+  <p class="login-text">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle fa-stack-2x"></i>
+      <i class="fa fa-lock fa-stack-1x"></i>
+    </span>
+  </p>
+  <input name="iduser" id="user" type="text" class="login-username" autofocus="true" required="true" placeholder="User" />
+  <input name="idpass"   id="pass" type="password" class="login-password" required="true" placeholder="Password" />  
+  <button type="submit" id= "boton1"  class="login-submit" > Ingresar </button>  
+  <a type="submit" href="./php/registro.php" class="login-submit">Registro</a>
+    
+  
+</form>
+
+<div class="underlay-photo"></div>
+<div class="underlay-black"></div>
+
+
+</body>
+</html>
+<script type="text/javascript">
+	var liga = "http://localhost/formulario/servidor/";
+		$("#boton1").on('click', function(e){
+		  e.preventDefault();		  
+          var formData = new FormData(document.getElementById("formulario"));
+					var url = liga+"php/login.php";
+					$.ajax({
+						type:'POST',
+						url:url,
+						data:formData,
+            			contentType:false,
+            			processData:false,
+            			cache:false,		
+						success:function(data){							
+							if(data == 1){
+								alert('bienvenido');
+								window.location="php/inicio.php"
+							}else{
+								alert(data);							
+							}
+							
+							
+						}
+					});
+					return false;
+			});    
+
+</script>
